@@ -1,7 +1,7 @@
-// ====================================================
-// More Templates: https://www.ebenmonney.com/templates
-// Email: support@ebenmonney.com
-// ====================================================
+
+ 
+
+
 
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 

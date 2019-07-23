@@ -1,7 +1,7 @@
-// ====================================================
-// More Templates: https://www.ebenmonney.com/templates
-// Email: support@ebenmonney.com
-// ====================================================
+
+ 
+
+
 
 import { animate, state, style, transition, trigger } from '@angular/animations';
 

@@ -1,7 +1,7 @@
-// ====================================================
-// More Templates: https://www.ebenmonney.com/templates
-// Email: support@ebenmonney.com
-// ====================================================
+
+ 
+
+
 
 import { Component, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 

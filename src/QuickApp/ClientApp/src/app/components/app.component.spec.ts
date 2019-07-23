@@ -1,8 +1,8 @@
 /// <reference path="../../../node_modules/@types/jasmine/index.d.ts" />
-// ====================================================
-// More Templates: https://www.ebenmonney.com/templates
-// Email: support@ebenmonney.com
-// ====================================================
+
+ 
+
+
 
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -78,7 +78,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Quick Application'`, () => {
+  it(`should have as title 'Application'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = <AppComponent>fixture.debugElement.componentInstance;
     expect(app.appTitle).toEqual('Quick Application');

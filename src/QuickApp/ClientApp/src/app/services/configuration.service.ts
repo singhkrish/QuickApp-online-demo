@@ -1,7 +1,7 @@
-// ====================================================
-// More Templates: https://www.ebenmonney.com/templates
-// Email: support@ebenmonney.com
-// ====================================================
+
+ 
+
+
 
 import { Injectable } from '@angular/core';
 
@@ -40,7 +40,7 @@ export class ConfigurationService {
 
   public baseUrl = environment.baseUrl || Utilities.baseUrl();
   public loginUrl = environment.loginUrl;
-  public fallbackBaseUrl = 'http://quickapp.ebenmonney.com';
+  public fallbackBaseUrl = 'http://app.demo.com';
 
   private _language: string = null;
   private _homeUrl: string = null;

@@ -1,7 +1,7 @@
-// ====================================================
-// More Templates: https://www.ebenmonney.com/templates
-// Email: support@ebenmonney.com
-// ====================================================
+
+ 
+
+
 
 import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -46,14 +46,9 @@ import { GroupByPipe } from './pipes/group-by.pipe';
 import { AppComponent } from './components/app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { CustomersComponent } from './components/customers/customers.component';
-import { ProductsComponent } from './components/products/products.component';
-import { OrdersComponent } from './components/orders/orders.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
-import { BannerDemoComponent } from './components/controls/banner-demo.component';
 import { TodoDemoComponent } from './components/controls/todo-demo.component';
 import { StatisticsDemoComponent } from './components/controls/statistics-demo.component';
 import { NotificationsViewerComponent } from './components/controls/notifications-viewer.component';
@@ -98,17 +93,13 @@ import { RoleEditorComponent } from './components/controls/role-editor.component
     AppComponent,
     LoginComponent,
     HomeComponent,
-    CustomersComponent,
-    ProductsComponent,
-    OrdersComponent,
     SettingsComponent,
     UsersManagementComponent, UserInfoComponent, UserPreferencesComponent,
     RolesManagementComponent, RoleEditorComponent,
-    AboutComponent,
     NotFoundComponent,
     NotificationsViewerComponent,
     SearchBoxComponent,
-    StatisticsDemoComponent, TodoDemoComponent, BannerDemoComponent,
+    StatisticsDemoComponent, TodoDemoComponent, 
     EqualValidator,
     LastElementDirective,
     AutofocusDirective,

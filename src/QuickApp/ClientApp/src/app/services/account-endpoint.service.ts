@@ -1,7 +1,7 @@
-// ====================================================
-// More Templates: https://www.ebenmonney.com/templates
-// Email: support@ebenmonney.com
-// ====================================================
+
+ 
+
+
 
 import { Injectable, Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
