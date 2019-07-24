@@ -1,0 +1,8 @@
+C:\Code\Demo\QuickApp-online-demo\src\DAL\bin\Debug\netstandard2.0\DAL.deps.json
+C:\Code\Demo\QuickApp-online-demo\src\DAL\bin\Debug\netstandard2.0\DAL.dll
+C:\Code\Demo\QuickApp-online-demo\src\DAL\bin\Debug\netstandard2.0\DAL.pdb
+C:\Code\Demo\QuickApp-online-demo\src\DAL\obj\Debug\netstandard2.0\DAL.csproj.CoreCompileInputs.cache
+C:\Code\Demo\QuickApp-online-demo\src\DAL\obj\Debug\netstandard2.0\DAL.AssemblyInfoInputs.cache
+C:\Code\Demo\QuickApp-online-demo\src\DAL\obj\Debug\netstandard2.0\DAL.AssemblyInfo.cs
+C:\Code\Demo\QuickApp-online-demo\src\DAL\obj\Debug\netstandard2.0\DAL.dll
+C:\Code\Demo\QuickApp-online-demo\src\DAL\obj\Debug\netstandard2.0\DAL.pdb
