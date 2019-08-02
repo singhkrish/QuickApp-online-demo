@@ -13526,17 +13526,17 @@
   "project": {
     "version": "2.7.1",
     "restore": {
-      "projectUniqueName": "C:\\Code\\Demo\\QuickApp-online-demo\\src\\QuickApp\\QuickApp.csproj",
+      "projectUniqueName": "C:\\Code\\Demo\\demo\\src\\QuickApp\\QuickApp.csproj",
       "projectName": "QuickApp",
-      "projectPath": "C:\\Code\\Demo\\QuickApp-online-demo\\src\\QuickApp\\QuickApp.csproj",
+      "projectPath": "C:\\Code\\Demo\\demo\\src\\QuickApp\\QuickApp.csproj",
       "packagesPath": "C:\\Users\\krishan.singh\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\Demo\\QuickApp-online-demo\\src\\QuickApp\\obj\\",
+      "outputPath": "C:\\Code\\Demo\\demo\\src\\QuickApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Code\\Demo\\QuickApp-online-demo\\NuGet.Config",
+        "C:\\Code\\Demo\\demo\\NuGet.Config",
         "C:\\Users\\krishan.singh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -13550,8 +13550,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Code\\Demo\\QuickApp-online-demo\\src\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Code\\Demo\\QuickApp-online-demo\\src\\DAL\\DAL.csproj"
+            "C:\\Code\\Demo\\demo\\src\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Code\\Demo\\demo\\src\\DAL\\DAL.csproj"
             }
           }
         }

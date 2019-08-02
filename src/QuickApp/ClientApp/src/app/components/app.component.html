@@ -23,18 +23,12 @@
             {{'app.Welcome' | translate}}
             <a class="app-component navbar-link user-name" [popover]="popTemplate" (onHidden)="markNotificationsAsRead()" placement="bottom" [popoverTitle]="notificationsTitle" href="javascript:;" triggers="focus">
               {{userName}}
-              <span *ngIf="newNotificationCount > 0" class="badge">{{newNotificationCount}}</span>
+             
             </a>,
           </p>
 
-          <ng-template #popTemplate>
-            <app-notifications-viewer [isViewOnly]="true"></app-notifications-viewer>
-          </ng-template>
 
-
-          <ul class="app-component nav navbar-nav nav-pills navBarPadding navbar-right">
-            <li routerLinkActive="active"><a routerLink="/settings"><span class="glyphicon glyphicon-cog"></span></a></li>
-          </ul>
+         
         </div>
         <div *ngIf="!isUserLoggedIn && router.isActive('/about', false)" class="app-component collapse navbar-collapse menuItemsContainer">
           <ul class="app-component nav navbar-nav nav-pills navBarPadding navbar-right">

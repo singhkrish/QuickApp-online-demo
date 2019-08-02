@@ -15,11 +15,11 @@ import { Permission } from '../../models/permission.model';
 
 
 @Component({
-  selector: 'app-user-info',
-  templateUrl: './user-info.component.html',
-  styleUrls: ['./user-info.component.css']
+  selector: 'valuation',
+  templateUrl: './valuation.component.html',
+  styleUrls: ['./valuation.component.css']
 })
-export class UserInfoComponent implements OnInit {
+export class ValuationComponent  implements OnInit {
 
   private isEditMode = false;
   private isNewUser = false;
@@ -175,21 +175,10 @@ export class UserInfoComponent implements OnInit {
 
 
   private saveSuccessHelper(user?: User) {
-    this.testIsRoleUserCountChanged(this.user, this.userEdit);
-
-    if (user)
-      Object.assign(this.userEdit, user);
-
+   
     this.isSaving = false;
     this.alertService.stopLoadingMessage();
-    this.isChangePassword = false;
     this.showValidationErrors = false;
-
-    this.deletePasswordFromUser(this.userEdit);
-    Object.assign(this.user, this.userEdit);
-    this.userEdit = new UserEdit();
-    this.resetForm();
-
 
     if (this.isGeneralEditor) {
       if (this.isNewUser) {
@@ -203,8 +192,7 @@ export class UserInfoComponent implements OnInit {
 
     if (this.isEditingSelf) {
       this.alertService.showMessage('Success', 'Changes to your User Profile was saved successfully', MessageSeverity.success);
-      this.refreshLoggedInUser();
-    }
+      }
 
     this.isEditMode = false;
 
@@ -226,175 +214,17 @@ export class UserInfoComponent implements OnInit {
 
 
 
-  private testIsRoleUserCountChanged(currentUser: User, editedUser: User) {
-
-    const rolesAdded = this.isNewUser ? editedUser.roles : editedUser.roles.filter(role => currentUser.roles.indexOf(role) == -1);
-    const rolesRemoved = this.isNewUser ? [] : currentUser.roles.filter(role => editedUser.roles.indexOf(role) == -1);
-
-    const modifiedRoles = rolesAdded.concat(rolesRemoved);
-
-    if (modifiedRoles.length)
-      setTimeout(() => this.accountService.onRolesUserCountChanged(modifiedRoles));
-  }
 
 
 
-  private cancel() {
-    if (this.isGeneralEditor)
-      this.userEdit = this.user = new UserEdit();
-    else
-      this.userEdit = new UserEdit();
-
-    this.showValidationErrors = false;
-    this.resetForm();
-
-    this.alertService.showMessage('Cancelled', 'Operation cancelled by user', MessageSeverity.default);
-    this.alertService.resetStickyMessage();
-
-    if (!this.isGeneralEditor)
-      this.isEditMode = false;
-
-    if (this.changesCancelledCallback)
-      this.changesCancelledCallback();
-  }
-
-
-  private close() {
-    this.userEdit = this.user = new UserEdit();
-    this.showValidationErrors = false;
-    this.resetForm();
-    this.isEditMode = false;
-
-    if (this.changesSavedCallback)
-      this.changesSavedCallback();
-  }
 
 
 
-  private refreshLoggedInUser() {
-    this.accountService.refreshLoggedInUser()
-      .subscribe(user => {
-        this.loadCurrentUserData();
-      },
-        error => {
-          this.alertService.resetStickyMessage();
-          this.alertService.showStickyMessage('Refresh failed',
-            'An error occured whilst refreshing logged in user information from the server', MessageSeverity.error, error);
-        });
-  }
-
-
-  private changePassword() {
-    this.isChangePassword = true;
-  }
-
-
-  private unlockUser() {
-    this.isSaving = true;
-    this.alertService.startLoadingMessage('Unblocking user...');
-
-
-    this.accountService.unblockUser(this.userEdit.id)
-      .subscribe(response => {
-        this.isSaving = false;
-        this.userEdit.isLockedOut = false;
-        this.alertService.stopLoadingMessage();
-        this.alertService.showMessage('Success', 'User has been successfully unblocked', MessageSeverity.success);
-      },
-        error => {
-          this.isSaving = false;
-          this.alertService.stopLoadingMessage();
-          this.alertService.showStickyMessage('Unblock Error', 'The below errors occured whilst unblocking the user:',
-            MessageSeverity.error, error);
-          this.alertService.showStickyMessage(error, null, MessageSeverity.error);
-        });
-  }
-
-
-  resetForm(replace = false) {
-    this.isChangePassword = false;
-
-    if (!replace) {
-      this.form.reset();
-    }
-    else {
-      this.formResetToggle = false;
-
-      setTimeout(() => {
-        this.formResetToggle = true;
-      });
-    }
-  }
-
-
-  newUser(allRoles: Role[]) {
-    this.isGeneralEditor = true;
-    this.isNewUser = true;
-
-    this.allRoles = [...allRoles];
-    this.editingUserName = null;
-    this.user = this.userEdit = new UserEdit();
-    this.userEdit.isEnabled = true;
-    this.edit();
-
-    return this.userEdit;
-  }
-
-  editUser(user: User, allRoles: Role[]) {
-    if (user) {
-      this.isGeneralEditor = true;
-      this.isNewUser = false;
-
-      this.setRoles(user, allRoles);
-      this.editingUserName = user.userName;
-      this.user = new User();
-      this.userEdit = new UserEdit();
-      Object.assign(this.user, user);
-      Object.assign(this.userEdit, user);
-      this.edit();
-
-      return this.userEdit;
-    }
-    else {
-      return this.newUser(allRoles);
-    }
-  }
-
-
-  displayUser(user: User, allRoles?: Role[]) {
-
-    this.user = new User();
-    Object.assign(this.user, user);
-    this.deletePasswordFromUser(this.user);
-    this.setRoles(user, allRoles);
-
-    this.isEditMode = false;
-  }
 
 
 
-  private setRoles(user: User, allRoles?: Role[]) {
-
-    this.allRoles = allRoles ? [...allRoles] : [];
-
-    if (user.roles) {
-      for (const ur of user.roles) {
-        if (!this.allRoles.some(r => r.name == ur))
-          this.allRoles.unshift(new Role(ur));
-      }
-    }
-
-    if (allRoles == null || this.allRoles.length != allRoles.length)
-      setTimeout(() => this.rolesSelector.refresh());
-  }
 
 
 
-  get canViewAllRoles() {
-    return this.accountService.userHasPermission(Permission.viewRolesPermission);
-  }
 
-  get canAssignRoles() {
-    return this.accountService.userHasPermission(Permission.assignRolesPermission);
-  }
 }
